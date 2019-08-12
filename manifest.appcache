@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# v1.18
+
+CACHE:
+index.html
+css/all.css
+js/all.js
+js/pwn.js
+img/amazing.png
+img/arrow.svg
+img/ios-icon.png
+payload
+favicon.ico
+
+NETWORK:
+manifest.appcache
