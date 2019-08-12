@@ -10,18 +10,26 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="apple-touch-icon" href="img/ios-icon.png">
+<script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
 <script>
 window.onerror = function(ev)
 {
     alert('Uncaught error: ' + ev);
+};
+function getInfo(){
+  var tid = getElementsByClassName("time");
+  tid.innerHTML = moment().format('hh:mm:ss');
+  
+  var did = getElementsByClassName("date");
+  did.innerHTML = moment().format('l');
 };
 </script>
 <script src="js/all.js"></script>
 <script src="js/pwn.js"></script>
 <body class="crazycolors">
     <header class="block">
-        <div class="time">09<span class="colon"></span>11</div>
-        <div class="date">Reckoning Day</div>
+        <div class="time"></div>
+        <div class="date"></div>
     </header>
     <div id="main">
         <img id="logo" src="img/amazing.png" alt="logo">
@@ -33,7 +41,7 @@ window.onerror = function(ev)
                 <img class="arrow" src="img/arrow.svg" alt="arrow">
             </div>
             <div id="hint">
-                <span>slide for jailbreak</span>
+                <span>slide for jailbr3ak</span>
             </div>
         </div>
     </div>
