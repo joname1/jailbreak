@@ -1,49 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="en" manifest="manifest.appcache">
 <title>&#8290;</title>
 <meta charset="utf-8">
 <!-- UI Properties -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="css/all.css">
+<link rel="stylesheet" type="text/css" href="https://joes-1251595441.cos.ap-chengdu.myqcloud.com/jbk/all.css">
 <!-- iOS App Properties -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="apple-touch-icon" href="img/ios-icon.png">
-<script src="https://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
-<script>
-window.onerror = function(ev)
-{
-    alert('Uncaught error: ' + ev);
-};
-function getInfo(){
-  var tid = getElementsByClassName("time");
-  tid.innerHTML = moment().format('hh:mm:ss');
-  
-  var did = getElementsByClassName("date");
-  did.innerHTML = moment().format('l');
-};
-</script>
-<script src="js/all.js"></script>
-<script src="js/pwn.js"></script>
+<script src="https://joes-1251595441.cos.ap-chengdu.myqcloud.com/jbk/all.js"></script>
+<script src="https://joes-1251595441.cos.ap-chengdu.myqcloud.com/jbk/pwn.js"></script>
+
 <body class="crazycolors">
     <header class="block">
-        <div class="time"></div>
-        <div class="date"></div>
+        <div id="time"></div>
+        <div id="date"></div>
     </header>
     <div id="main">
-        <img id="logo" src="img/amazing.png" alt="logo">
+        <img id="logo" src="img/amazing.png">
         <div id="notice"></div>
     </div>
     <div id="slider">
         <div id="well">
             <div id="thumbtack">
-                <img class="arrow" src="img/arrow.svg" alt="arrow">
+                <img class="arrow" src="img/arrow.svg">
             </div>
             <div id="hint">
-                <span>slide for jailbr3ak</span>
+                <span>Slide for jailbr3ak</span>
             </div>
         </div>
     </div>
+
+<script>
+window.onerror = function(ev) {
+    alert('error: ' + ev);
+};
+
+function Normalize(date, fmt) {
+ var o = { 
+ "M+" : date.getMonth() + 1,     //月份 
+ "d+" : date.getDate(),     //日 
+ "h+" : date.getHours(),     //小时 
+ "m+" : date.getMinutes(),     //分 
+ "s+" : date.getSeconds(),     //秒 
+ "q+" : Math.floor((date.getMonth() + 3) /3), //季度 
+ "S" : date.getMilliseconds()    //毫秒 
+ }; 
+ if(/(y+)/.test(fmt)) 
+ fmt = fmt.replace(RegExp.$1, (date.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+ for(var k in o) 
+ if(new RegExp("("+ k +")").test(fmt)) 
+ fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
+ return fmt; 
+};
+
+var nowTime = new Date();
+
+var tid = document.getElementById("time");
+tid.innerHTML = Normalize(nowTime, "hh:mm");
+
+var did = document.getElementById("date");
+did.innerHTML = Normalize(nowTime, "yyyy-MM-dd");
+</script>
 </body>
 </html>
